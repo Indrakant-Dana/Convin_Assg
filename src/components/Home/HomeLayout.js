@@ -93,7 +93,7 @@ const HomeLayout = ({ Component, title }) => {
   const handleEditBucketValue = () => {
     dispatch(updateBucket(currBucketValue?.value, currBucketValue?.id));
 
-    //edit only the label of the bucket with id equal to currBucketValue.id
+    //edit only the label of the bucket in the bucketTab state with id equal to curr edited bucket's id
     const newBucketTab = bucketTab.map((bucket) => {
       if (bucket.key === currBucketValue?.id.toString()) {
         bucket.label = (
@@ -115,7 +115,6 @@ const HomeLayout = ({ Component, title }) => {
       return bucket;
     });
     setBucketTab(newBucketTab);
-    // console.log(currBucketValue?.value, currBucketValue?.id);
     setOpen(false);
   };
 
