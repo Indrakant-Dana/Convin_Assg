@@ -119,11 +119,11 @@ const VideoCard = ({ card, bucketId }) => {
                 options={[
                   {
                     value: 1,
-                    label: "Action",
+                    label: { buckets }?.buckets?.[0]?.value,
                   },
                   {
                     value: 2,
-                    label: "Comedy",
+                    label: { buckets }?.buckets?.[1]?.value,
                   },
                 ]}
               />
