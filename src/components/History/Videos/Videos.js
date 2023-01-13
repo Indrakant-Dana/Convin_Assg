@@ -27,21 +27,16 @@ const Videos = () => {
             .map((card) => (
               <>
                 {console.log(card?.name)}
-                {/* {card?.name} */}
                 <Card
+                  // hoverable
                   style={{
-                    width: "25%",
-                    marginBottom: "50px",
+                    width: "100%",
+                    marginBottom: "20px",
                     boxShadow: "0px 0px 8px rgba(0,0,0,0.2)",
                   }}
-                  cover={
-                    <img
-                      alt="example"
-                      src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
-                    />
-                  }
                 >
-                  <Meta title={card?.name} />
+                  <Meta title={card?.name} style={{ marginBottom: "10px" }} />
+                  <Meta description={`Link: ${card?.link}`} />
                   <Meta description={`No. of clicked: ${card?.clicked}`} />
                 </Card>
               </>
