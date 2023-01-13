@@ -40,6 +40,19 @@ const VideoCard = ({ card, bucketId }) => {
     dispatch(deleteCard(updatedCard, category?.newCategory, message));
   };
 
+  const handleView = () => {
+    setUpdatedCard({ ...updatedCard, clicked: updatedCard.clicked + 1 });
+    dispatch(
+      updateCard(
+        { ...updatedCard, clicked: updatedCard.clicked + 1 },
+        category?.newCategory,
+        setOpen
+      )
+    );
+    setState("View");
+    setOpen(true);
+  };
+
   useEffect(() => {}, [handleEdit]);
 
   return (
@@ -155,13 +168,7 @@ const VideoCard = ({ card, bucketId }) => {
         ]}
       >
         <Meta title={card?.name} />
-        <Button
-          style={{ marginTop: "10px", width: "100%" }}
-          onClick={() => {
-            setState("View");
-            setOpen(true);
-          }}
-        >
+        <Button style={{ marginTop: "10px", width: "100%" }} onClick={handleView}>
           View
         </Button>
       </Card>

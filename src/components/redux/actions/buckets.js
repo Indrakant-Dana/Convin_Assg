@@ -34,8 +34,9 @@ export const updateCard = (data, category, setOpen, message) => (dispatch) => {
     dispatch({ type: START_LOADING });
     dispatch({ type: UPDATE_CARD, payload: { data, category } });
     dispatch({ type: END_LOADING });
-    setOpen(false);
-    message("Card updated successfully");
+    console.log(data);
+    if (setOpen) setOpen(false);
+    if (message) message("Card updated successfully");
   } catch (error) {
     console.log(error.message);
   }
