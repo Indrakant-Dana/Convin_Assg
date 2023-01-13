@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import { updateBucket } from "../redux/actions/buckets";
+import styles from "./HomeLayout.module.css";
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -152,8 +153,19 @@ const HomeLayout = ({ Component, title }) => {
       )}
 
       <Layout>
-        <Header className="header">
-          <div className="logo" />
+        <Header style={{ position: "sticky", top: 0, zIndex: 1, width: "100%" }}>
+          <div
+            style={{
+              float: "left",
+              width: 130,
+              height: 35,
+              margin: "12px 30px 5px -10px",
+              background: "rgba(255, 255, 255, 0.2)",
+              color: "white",
+            }}
+          >
+            <h2 style={{ marginTop: "-15px", marginLeft: "5px" }}>BucketStore</h2>
+          </div>
           <Menu theme="dark" mode="horizontal" defaultSelectedKeys={[currTab]} items={tabs} />
         </Header>
         <Layout>
