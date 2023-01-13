@@ -1,9 +1,55 @@
-import React from 'react'
+import React from "react";
+import { Card } from "antd";
+import { useSelector } from "react-redux";
+
+const { Meta } = Card;
 
 const Videos = () => {
-  return (
-    <div>Videos</div>
-  )
-}
+  const { isLoading, buckets } = useSelector((state) => state);
 
-export default Videos
+  if (isLoading) {
+    return <>Loading...</>;
+  }
+
+  return (
+    <div
+      style={{
+        width: "100%",
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
+      {
+        //sort and show all cards in every bucket based on number of times clicked
+        buckets.map((bucket) => {
+          return bucket.cards
+            .sort((a, b) => b.clicked - a.clicked)
+            .map((card) => (
+              <>
+                {console.log(card?.name)}
+                {/* {card?.name} */}
+                <Card
+                  style={{
+                    width: "25%",
+                    marginBottom: "50px",
+                    boxShadow: "0px 0px 8px rgba(0,0,0,0.2)",
+                  }}
+                  cover={
+                    <img
+                      alt="example"
+                      src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
+                    />
+                  }
+                >
+                  <Meta title={card?.name} />
+                  <Meta description={`No. of clicked: ${card?.clicked}`} />
+                </Card>
+              </>
+            ));
+        })
+      }
+    </div>
+  );
+};
+
+export default Videos;

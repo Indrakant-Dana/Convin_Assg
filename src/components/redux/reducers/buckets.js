@@ -72,7 +72,7 @@ export const buckets = (state = { isLoading: false, buckets: initialState }, act
       };
 
     case UPDATE_CARD:
-      state = {
+      return {
         ...state,
         buckets: state.buckets.map((bucket) => {
           if (bucket.id === action.payload.category) {
@@ -86,8 +86,6 @@ export const buckets = (state = { isLoading: false, buckets: initialState }, act
           return bucket;
         }),
       };
-      console.log(state);
-      return state;
 
     case UPDATE_BUCKET:
       //update bucket value
