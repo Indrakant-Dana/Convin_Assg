@@ -48,7 +48,7 @@ export const buckets = (state = { isLoading: false, buckets: initialState }, act
       return { ...state, isLoading: false };
 
     case ADD_CARD:
-      state = {
+      return {
         ...state,
         buckets: state.buckets.map((bucket) => {
           if (bucket.id === action.payload.category) {
@@ -57,8 +57,6 @@ export const buckets = (state = { isLoading: false, buckets: initialState }, act
           return bucket;
         }),
       };
-      console.log(state);
-      return state;
 
     case DELETE_CARD:
       return {

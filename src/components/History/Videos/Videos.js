@@ -26,7 +26,6 @@ const Videos = () => {
             .sort((a, b) => b.clicked - a.clicked)
             .map((card) => (
               <>
-                {console.log(card?.name)}
                 <Card
                   // hoverable
                   style={{

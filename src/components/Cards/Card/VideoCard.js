@@ -8,7 +8,7 @@ import { deleteCard, updateCard, createCard } from "../../redux/actions/buckets"
 
 const { Meta } = Card;
 
-const VideoCard = ({ card, bucketId }) => {
+const VideoCard = ({ card, bucketId, bucketName }) => {
   const [open, setOpen] = useState(false);
   const [state, setState] = useState("View");
   const [updatedCard, setUpdatedCard] = useState(card);
@@ -52,8 +52,6 @@ const VideoCard = ({ card, bucketId }) => {
     setState("View");
     setOpen(true);
   };
-
-  useEffect(() => {}, [handleEdit]);
 
   return (
     <>

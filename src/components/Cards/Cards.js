@@ -20,7 +20,7 @@ const Cards = ({ bucket }) => {
     link: "",
     clicked: 0,
   });
-  const [category, setCateogy] = useState("");
+  const [category, setCategory] = useState("");
 
   const handleSubmit = () => {
     const message = (msg) => {
@@ -35,7 +35,6 @@ const Cards = ({ bucket }) => {
     }
 
     dispatch(createCard(newCard, category, setOpen, message));
-    
   };
 
   useEffect(() => {
@@ -86,15 +85,15 @@ const Cards = ({ bucket }) => {
               filterOption={(input, option) =>
                 (option?.label ?? "").toLowerCase().includes(input.toLowerCase())
               }
-              onChange={(value) => setCateogy(value)}
+              onChange={(value) => setCategory(value)}
               options={[
                 {
                   value: 1,
-                  label: "Action",
+                  label: buckets[0]?.value,
                 },
                 {
                   value: 2,
-                  label: "Comedy",
+                  label: buckets[1]?.value,
                 },
               ]}
             />
