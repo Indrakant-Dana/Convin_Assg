@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Button, Modal, Form, Input, notification, Select } from "antd";
 import { InfoCircleOutlined } from "@ant-design/icons";
 import { useDispatch, useSelector } from "react-redux";
@@ -36,10 +36,6 @@ const Cards = ({ bucket }) => {
 
     dispatch(createCard(newCard, category, setOpen, message));
   };
-
-  useEffect(() => {
-    setNewCard({ ...newCard, id: uuidv4().slice(0, 8) });
-  }, [bucket, newCard]);
 
   return (
     <>
@@ -115,10 +111,12 @@ const Cards = ({ bucket }) => {
             })
           : //show cards inside a particular bucket
             buckets?.map((b) => {
-              return b?.id === bucket &&
+              return (
+                b?.id === bucket &&
                 b?.cards?.map((card) => {
                   return <VideoCard card={card} bucketId={b?.id} id={card?.id} />;
-                });
+                })
+              );
             })}
       </div>
     </>
