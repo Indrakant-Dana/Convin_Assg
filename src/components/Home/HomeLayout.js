@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import { updateBucket } from "../redux/actions/buckets";
-import styles from "./HomeLayout.module.css";
 
 const { Header, Content, Footer, Sider } = Layout;
 
