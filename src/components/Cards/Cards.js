@@ -39,7 +39,7 @@ const Cards = ({ bucket }) => {
 
   useEffect(() => {
     setNewCard({ ...newCard, id: uuidv4().slice(0, 8) });
-  }, [bucket]);
+  }, [bucket, newCard]);
 
   return (
     <>
@@ -106,7 +106,7 @@ const Cards = ({ bucket }) => {
       </Button>
 
       <div style={{ width: "100%", display: "flex", flexWrap: "wrap", alignItems: "center" }}>
-        {bucket == 0
+        {bucket === 0
           ? //show all cards inside every bucket
             buckets?.map((b) => {
               return b?.cards?.map((card) => {
@@ -115,11 +115,10 @@ const Cards = ({ bucket }) => {
             })
           : //show cards inside a particular bucket
             buckets?.map((b) => {
-              if (b?.id === bucket) {
-                return b?.cards?.map((card) => {
+              return b?.id === bucket &&
+                b?.cards?.map((card) => {
                   return <VideoCard card={card} bucketId={b?.id} id={card?.id} />;
                 });
-              }
             })}
       </div>
     </>

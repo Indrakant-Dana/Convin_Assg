@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { EditOutlined, InfoCircleOutlined, DeleteOutlined } from "@ant-design/icons";
 import { Card, Modal, Button, Form, Input, Select, notification } from "antd";
 import { useDispatch, useSelector } from "react-redux";
